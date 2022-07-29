@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-weight: 300;
+    color: white;
+    margin: 0;
+    background-color: #000;
+
+}
+
+.header {
+    padding: 1em;
+    font-size: 1.2rem;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+
+}
+.emphasis {
+    color: #0f0;
+    text-shadow: 0 0 25px #0f0;
+    font-weight: bold
+}
+.warning {
+    color: #f00;
+    text-shadow: 0 0 25px #f00;
+    font-weight: bold
+}
+
+
+hr {
+    margin: 0 auto;
+    border: 1px solid #0f0;
+    width: 100%;
+    margin: 30px 0;
+}
+
+
+.generate-menu {
+    display: flex;
+    justify-content: center;
+}
+
+.generator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0f0;
+    padding: 12px 24px;
+
+
+}
+
+.generated {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0f0;
+    padding: 12px 24px;
+}
+
+
+.generated-btn {
+    margin: 10px 0;
+        width: 150px;
+
+}
+.filters {
+    display: flex;
+    flex-direction: column;
+
+}
+.filter-btn {
+    /* margin: 10px 0; */
+        width: 150px;
+    color: #0f0;
+    background-color: #000;
+    border: 2px solid #0f0;
+        padding: 8px;
+        margin: 6px;
+
+}
+
+button {
+    cursor: pointer;
+    border-radius: 6px;
+
+}
+
+.btn {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #0f0;
+    background-color: #000;
+    border: 2px solid #0f0;
+    padding: 6px;
+
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.btn:hover {
+    color: #000;
+    background-color: #0f0;
+    box-shadow: 0 0 25px #0f0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+  src: url("fonts/DS-DIGI.ttf");
+  font-family: digital;
+}
+
+
+
+#increment-btn {
+    background: #0f0;
+    color: #fff;
+    border: 1px solid #0f0;
+    padding: 8px 16px;
+
+    
+}
+
+#decrement-btn {
+    background: #f00;
+    color: #fff;
+    border: 1px solid #f00;
+    padding: 8px 16px;
+
+
+}
+    
+
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+      font-family: digital;
+
+}
+#count-el {
+    font-weight: 400;
+    font-size: 64px;
+    font-family: digital;
+
+}
+.counter-screen {
+    background-color: black;
+    color: #f00;
+}
+.counter-btns {
+    background-color: black;
+
+}
+.counter-info {
+    background-color: black;
+    color: #fff;
+    font-family: digital;
+    font-size: 16px;
+
+
+}
+
