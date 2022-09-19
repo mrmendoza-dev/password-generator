@@ -142,7 +142,7 @@ button {
 
 
 @font-face {
-  src: url("fonts/DS-DIGI.ttf");
+  src: url("fonts/digital/DS-DIGI.ttf");
   font-family: digital;
 }
 
@@ -172,7 +172,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-      font-family: digital;
+    font-family: digital;
 
 }
 #count-el {
