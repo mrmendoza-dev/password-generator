@@ -10,27 +10,12 @@ body {
     color: white;
     margin: 0;
     background-color: #000;
-
+    height: 100vh;
 }
 
-.header {
-    padding: 1em;
-    font-size: 1.2rem;
-}
-.main-container {
-    display: flex;
-    flex-direction: column;
-
-}
-.emphasis {
-    color: #0f0;
-    text-shadow: 0 0 25px #0f0;
-    font-weight: bold
-}
-.warning {
-    color: #f00;
-    text-shadow: 0 0 25px #f00;
-    font-weight: bold
+button {
+    cursor: pointer;
+    border-radius: 6px;
 }
 
 
@@ -40,6 +25,28 @@ hr {
     width: 100%;
     margin: 30px 0;
 }
+
+
+
+.header {
+    padding: 1em;
+    font-size: 1.2rem;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+.emphasis {
+    color: #0f0;
+    text-shadow: 0 0 25px #0f0;
+    font-weight: bold
+}
+.warning {
+    color: #f00;
+    font-weight: bold
+}
+
+
 
 
 .generate-menu {
@@ -54,8 +61,6 @@ hr {
     align-items: center;
     border: 1px solid #0f0;
     padding: 12px 24px;
-
-
 }
 
 .generated {
@@ -80,20 +85,14 @@ hr {
 }
 .filter-btn {
     /* margin: 10px 0; */
-        width: 150px;
+    width: 150px;
     color: #0f0;
     background-color: #000;
     border: 2px solid #0f0;
-        padding: 8px;
-        margin: 6px;
-
+    padding: 8px;
+    margin: 6px;
 }
 
-button {
-    cursor: pointer;
-    border-radius: 6px;
-
-}
 
 .btn {
     font-style: normal;
@@ -104,19 +103,16 @@ button {
     background-color: #000;
     border: 2px solid #0f0;
     padding: 6px;
-
-
     flex: none;
     order: 0;
     flex-grow: 0;
-
+    transition: all 100ms;
 }
 
 .btn:hover {
     color: #000;
     background-color: #0f0;
     box-shadow: 0 0 25px #0f0;
-
 }
 
 
@@ -149,22 +145,24 @@ button {
 
 
 #increment-btn {
-    background: #0f0;
-    color: #fff;
-    border: 1px solid #0f0;
-    padding: 8px 16px;
+    background: #000;
+    color: #0f0;
+    border: 3px solid #0f0;
+    padding: 4px 16px;
+    font-size: 1.6rem;
+    width: 50px;
 
-    
 }
 
 #decrement-btn {
-    background: #f00;
-    color: #fff;
-    border: 1px solid #f00;
-    padding: 8px 16px;
-
-
+    background: #000;
+    color: #f00;
+    border: 3px solid #f00;
+    padding: 4px 16px;
+    font-size: 1.6rem;
+    width: 50px;
 }
+
     
 
 
