@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+}
+
+button {
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+
+hr {
+    margin: 0 auto;
+    border: 1px solid #0f0;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    margin: 0;
+    background-color: #000;
+    height: 100vh;
+}
+
+.header {
+    padding: 1em;
+    font-size: 1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.emphasis {
+    color: #0f0;
+    text-shadow: 0 0 25px #0f0;
+    font-weight: bold
+}
+.warning {
+    color: #f00;
+    font-weight: bold
+}
+
+
+.generate-menu {
+    display: flex;
+    justify-content: center;
+}
+
+.generator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0f0;
+    padding: 12px 24px;
+        padding: 2em;
+
+}
+
+.generated {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0f0;
+    padding: 12px 24px;
+}
+
+.generated-btn {
+    margin: 10px 0;
+        width: 150px;
+
+}
+.filters {
+    display: flex;
+    flex-direction: column;
+
+}
+.filter-btn {
+    /* margin: 10px 0; */
+    width: 150px;
+    background-color: #000;
+    padding: 8px;
+    margin: 6px;
+}
+
+
+.btn {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #0f0;
+    background-color: #000;
+    border: 2px solid #0f0;
+    padding: 6px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    transition: all 100ms;
+}
+
+.btn:hover {
+    color: #000;
+    background-color: #0f0;
+    box-shadow: 0 0 25px #0f0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+  src: url("../src/assets/fonts/digital/DS-DIGI.ttf");
+  font-family: digital;
+}
+
+
+
+.increment-btn {
+    background: #000;
+    color: #0f0;
+    border: 3px solid #0f0;
+    padding: 4px 16px;
+    font-size: 1.6rem;
+    width: 50px;
+
+}
+
+.decrement-btn {
+    background: #000;
+    color: #f00;
+    border: 3px solid #f00;
+    padding: 4px 16px;
+    font-size: 1.6rem;
+    width: 50px;
+}
+
+    
+
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: digital;
+
+}
+.counter-val {
+    font-weight: 400;
+    font-size: 64px;
+    font-family: digital;
+
+}
+.counter-screen {
+    background-color: black;
+    color: #f00;
+}
+.counter-btns {
+    background-color: black;
+
+}
+.counter-info {
+    background-color: black;
+    color: #fff;
+    font-family: digital;
+    font-size: 16px;
+
+
+}
+
