@@ -75,7 +75,7 @@ button {
 }
 
 @font-face {
-  src: url("./src/assets/fonts/digital/DS-DIGI.ttf");
+  src: url("./assets/fonts/digital/DS-DIGI.ttf");
   font-family: digital;
 }
 
