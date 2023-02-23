@@ -10,8 +10,8 @@ button {
 }
 
 @font-face {
-  src: url("./fonts/digital/DS-DIGI.ttf");
-  font-family: digital;
+  font-family: "digital";
+  src: url("./assets/fonts/digital/DS-DIGI.ttf");
 }
 
 .App {
@@ -135,7 +135,7 @@ button {
 .counter-val {
   font-weight: 400;
   font-size: 64px;
-  font-family: digital;
+  font-family: "digital";
 }
 .counter-screen {
   background-color: black;
