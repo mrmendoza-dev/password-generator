@@ -1,195 +1,192 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import styled from "styled-components";
+import { useState, useEffect } from "react";
+import "./App.css";
 
-const Toggle = styled.button<{ data: any }>`
-  color: ${(props: any) => (props.data ? "#0f0" : "#f00")};
-  border: ${(props: any) => (props.data ? "2px solid #0f0" : "2px solid #f00")};
-`;
+// const Toggle = styled.button<{ data: any }>`
+//   color: ${(props: any) => (props.data ? "#0f0" : "#f00")};
+//   border: ${(props: any) => (props.data ? "2px solid #0f0" : "2px solid #f00")};
+// `;
 
 function App() {
-  const [count, setCount] = useState(8)
+  const [length, setLength] = useState(8);
   const [upperFlag, setUpperFlag] = useState(true);
   const [lowerFlag, setLowerFlag] = useState(true);
   const [digitFlag, setDigitFlag] = useState(true);
   const [symbolFlag, setSymbolFlag] = useState(true);
+  const [passwords, setPasswords] = useState([]);
 
 
-  const uppercase = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-  const lowercase = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ];
-  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  const symbols = [
-    "~",
-    "`",
-    "!",
-    "@",
-    "#",
-    "$",
-    "%",
-    "^",
-    "&",
-    "*",
-    "(",
-    ")",
-    "_",
-    "-",
-    "+",
-    "=",
-    "{",
-    "[",
-    "}",
-    "]",
-    ",",
-    "|",
-    ":",
-    ";",
-    "<",
-    ">",
-    ".",
-    "?",
-  ];
 
+  const characters = {
+    uppercase: [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+    ],
+    lowercase: [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z",
+    ],
+    numbers: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    symbols: [
+      "~",
+      "`",
+      "!",
+      "@",
+      "#",
+      "$",
+      "%",
+      "^",
+      "&",
+      "*",
+      "(",
+      ")",
+      "_",
+      "-",
+      "+",
+      "=",
+      "{",
+      "[",
+      "}",
+      "]",
+      ",",
+      "|",
+      ":",
+      ";",
+      "<",
+      ">",
+      ".",
+      "?",
+    ],
+  };
 
   function decrement() {
-    if (count > 4) {
-      setCount(prevCount => prevCount - 1);
+    if (length > 4) {
+      setLength((prevVal) => prevVal - 1);
     }
   }
 
   function increment() {
-    if (count < 24) {
-      setCount((prevCount) => prevCount + 1);
+    if (length < 24) {
+      setLength((prevVal) => prevVal + 1);
     }
   }
-
 
   function compileCharacters() {
-    let characters: any = [];
-    if (upperFlag ) {
-      characters = characters.concat(uppercase);
+    let charString: any = [];
+    if (upperFlag) {
+      charString = charString.concat(characters.uppercase);
     }
     if (lowerFlag) {
-      characters = characters.concat(lowercase);
+      charString = charString.concat(characters.lowercase);
     }
     if (digitFlag) {
-      characters = characters.concat(numbers);
+      charString = charString.concat(characters.numbers);
     }
     if (symbolFlag) {
-      characters = characters.concat(symbols);
+      charString = charString.concat(characters.symbols);
     }
-    return characters;
+    return charString;
   }
-
 
   function generatePasswords() {
     let chars = compileCharacters();
-
     if (chars.length === 0) {
       return;
     }
 
-    // for (let i = 0; i < generatedPWs.length; i += 1) {
-    //   let pw = "";
 
-    //   for (let i = 0; i < count; i += 1) {
-    //     let randomIndex = Math.floor(Math.random() * chars.length);
-    //     pw += chars[randomIndex];
-    //   }
+    let pwList: any = [];
+    for (let i = 0; i < 10; i += 1) {
+      let pw = "";
 
-    // }
+      for (let i = 0; i < length; i += 1) {
+        let randomIndex = Math.floor(Math.random() * chars.length);
+        pw += chars[randomIndex];
+      }
+
+      pwList.push(pw);
+    }
+    setPasswords(pwList);
+
+
+
   }
 
   function copyPassword(password: any) {
-    // var copyText = password.innerText;
-    // navigator.clipboard.writeText(copyText);
+    navigator.clipboard.writeText(password);
   }
 
-  function toggleUpper() {
-    setUpperFlag(prevState => !prevState)
-  }
-  function toggleLower() {
-    setLowerFlag((prevState) => !prevState);
-  }
-  function toggleDigits() {
-    setDigitFlag((prevState) => !prevState);
-  }
-  function toggleSymbols() {
-    setSymbolFlag((prevState) => !prevState);
-  }
 
-  
+useEffect(()=> {
+  generatePasswords();
+}, [])
+
   return (
     <div className="App">
-        <div className="header">
-          <h1>
-            Generate a <span className="emphasis">random password</span>
-          </h1>
-          <p>
-            Never use an <span className="warning">insecure</span> password
-            again.
-          </p>
-        </div>
+      <div className="header">
+        <h1>
+          Generate a <span className="emphasis">random password</span>
+        </h1>
+        <p>
+          Never use an <span className="warning">insecure</span> password again.
+        </p>
+      </div>
 
-        <div className="generate-menu">
-          <div className="generator">
-            <div className="counter">
+      <div className="generate-menu">
+        <div className="generator">
+
+
+          <div className="generator-form">
+            <div className="length-input">
               <div className="counter-screen">
-                <p className="counter-val">{count}</p>
+                <p className="counter-val">{length}</p>
               </div>
 
               <div className="counter-btns">
@@ -203,50 +200,75 @@ function App() {
             </div>
 
             <div className="filters">
-              <Toggle
-                data={upperFlag}
-                onClick={toggleUpper}
-                className="filter-btn"
-              >
-                Uppercase
-              </Toggle>
-              <Toggle
-                data={lowerFlag}
-                onClick={toggleLower}
-                className="filter-btn"
-              >
-                Lowercase
-              </Toggle>
-              <Toggle
-                data={digitFlag}
-                onClick={toggleDigits}
-                className="filter-btn"
-              >
-                Digits
-              </Toggle>
-              <Toggle
-                data={symbolFlag}
-                onClick={toggleSymbols}
-                className="filter-btn"
-              >
-                Symbols
-              </Toggle>
-
+              <ToggleButton
+                text="Uppercase"
+                onToggle={setUpperFlag}
+                default={upperFlag}
+              />
+              <ToggleButton
+                text="Lowercase"
+                onToggle={setLowerFlag}
+                default={lowerFlag}
+              />
+              <ToggleButton
+                text="Digits"
+                onToggle={setDigitFlag}
+                default={digitFlag}
+              />
+              <ToggleButton
+                text="Symbols"
+                onToggle={setSymbolFlag}
+                default={symbolFlag}
+              />
             </div>
-
-            <button className="btn" id="generateBtn">
-              Generate Passwords
-            </button>
           </div>
 
-          <div className="generated">
-            <button onClick={copyPassword} className="btn generated-btn">
-              PASSWORD
-            </button>
-          </div>
+          <button onClick={generatePasswords} className="btn-generate">
+            Generate Passwords
+          </button>
         </div>
+
+        <div className="generated-btns">
+          {passwords.map((pw) => {
+            return (
+              <button
+                key={pw}
+                onClick={() => copyPassword(pw)}
+                className="btn-generate"
+              >
+                {pw}
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App
+export default App;
+
+function ToggleButton(props: any) {
+  const [toggled, setToggled] = useState(props.default);
+  let clrOn = "#00ff00";
+  let clrOff = "#ff0000";
+
+  function handleChange() {
+    const newToggled = !toggled;
+    setToggled(newToggled);
+    props.onToggle(newToggled);
+  }
+
+  return (
+    <button
+      className="btn"
+      onClick={handleChange}
+      style={{
+        color: toggled ? clrOn : clrOff,
+        borderColor: toggled ? clrOn : clrOff,
+      }}
+    >
+      {props.text}
+    </button>
+  );
+}
