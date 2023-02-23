@@ -6,6 +6,12 @@
 button {
   cursor: pointer;
   font: inherit;
+  transition: all 100ms;
+}
+
+@font-face {
+  src: url("./fonts/digital/DS-DIGI.ttf");
+  font-family: digital;
 }
 
 .App {
@@ -72,15 +78,6 @@ button {
   width: 150px;
   background-color: #000;
   padding: 8px;
-}
-
-@font-face {
-  src: url("./assets/fonts/digital/DS-DIGI.ttf");
-  font-family: digital;
-}
-
-button {
-  transition: all 100ms;
 }
 
 .btn {
