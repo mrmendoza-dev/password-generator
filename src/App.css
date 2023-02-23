@@ -9,10 +9,6 @@ button {
   transition: all 100ms;
 }
 
-@font-face {
-  font-family: "digital";
-  src: url("./assets/fonts/digital/DS-DIGI.ttf");
-}
 
 .App {
   display: flex;
@@ -134,8 +130,8 @@ button {
 }
 .counter-val {
   font-weight: 400;
-  font-size: 64px;
-  font-family: "digital";
+  font-size: 3rem;
+
 }
 .counter-screen {
   background-color: black;
