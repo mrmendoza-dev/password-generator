@@ -14,6 +14,7 @@ function App() {
   const [symbolFlag, setSymbolFlag] = useState(true);
   const [passwords, setPasswords] = useState([]);
 
+  const [total, setTotal] = useState(0);
 
 
   const characters = {
@@ -104,7 +105,10 @@ function App() {
       ".",
       "?",
     ],
+    hex: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"],
   };
+
+  let lengths = [16,32,64,128,256];
 
   function decrement() {
     if (length > 4) {
@@ -113,10 +117,11 @@ function App() {
   }
 
   function increment() {
-    if (length < 24) {
+    if (length < 4096) {
       setLength((prevVal) => prevVal + 1);
     }
   }
+
 
   function compileCharacters() {
     let charString: any = [];
@@ -135,13 +140,14 @@ function App() {
     return charString;
   }
 
-  function generatePasswords() {
-    let chars = compileCharacters();
-    if (chars.length === 0) {
-      return;
-    }
 
+  function generateHex() {
+    let chars = characters.hex;
+    let hexPwList = generate(chars);
+    setPasswords(hexPwList);
+  }
 
+  function generate(chars: any) {
     let pwList: any = [];
     for (let i = 0; i < 10; i += 1) {
       let pw = "";
@@ -150,14 +156,28 @@ function App() {
         let randomIndex = Math.floor(Math.random() * chars.length);
         pw += chars[randomIndex];
       }
+      
+
 
       pwList.push(pw);
     }
-    setPasswords(pwList);
 
-
-
+    let totalPw = Math.pow(chars.length, length);
+    setTotal(totalPw);
+    return pwList;
   }
+
+
+  function generatePasswords() {
+    let chars = compileCharacters();
+    if (chars.length === 0) {
+      return;
+    }
+
+    setPasswords(generate(chars));
+  }
+
+
 
   function copyPassword(password: any) {
     navigator.clipboard.writeText(password);
@@ -181,8 +201,10 @@ useEffect(()=> {
 
       <div className="generate-menu">
         <div className="generator">
-
-
+          <button onClick={generatePasswords} className="btn-generate">
+            Generate Passwords
+          </button>
+          
           <div className="generator-form">
             <div className="length-input">
               <div className="counter-screen">
@@ -196,6 +218,20 @@ useEffect(()=> {
                 <button className="increment-btn" onClick={increment}>
                   +
                 </button>
+              </div>
+
+              <div className="preset-btns">
+                {lengths.map((pwLength) => {
+                  return (
+                    <button
+                      key={pwLength}
+                      className="preset-btn"
+                      onClick={() => setLength(pwLength)}
+                    >
+                      {pwLength}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -221,11 +257,15 @@ useEffect(()=> {
                 default={symbolFlag}
               />
             </div>
+
+            <div className="functions">
+              <button className="btn-generate" onClick={generateHex}>
+                HEX
+              </button>
+            </div>
           </div>
 
-          <button onClick={generatePasswords} className="btn-generate">
-            Generate Passwords
-          </button>
+          <p className="total-pw">Total Passwords: {total.toExponential(2)}</p>
         </div>
 
         <div className="generated-btns">
